@@ -2,7 +2,7 @@ public class MathGenerator {
     public static void main(String[] args) {
 
         System.out.println("SELECT A PARTICIPANT");
-        System.out.println("_____________________\n\n");
+       /* System.out.println("_____________________\n\n");
         System.out.println("" +
                 "     /:\"\"|       .@@@@@,\n" +
                 "     |: 66|_      @@@@@@@@,\n" +
@@ -24,8 +24,50 @@ public class MathGenerator {
                 "      | ||          | ||      ||     ||        |||\n" +
                 "      |_||__      __|_||      ||_____||       _|||\n" +
                 "      (____))    (:;:;))      ||-----||      ((___)");
-        System.out.println("       BILL       DEBRA       LIL JOHNNY      SUSIE    ");
+        System.out.println("       BILL       DEBRA       LIL JOHNNY      SUSIE    ");*/
 
+
+
+
+
+        System.out.println("  \\\n" +
+                "   o/\\_\n" +
+                "  <\\__,\\\n" +
+                "   \">   |\n" +
+                "    `   |\n" +
+                "         \\\n" +
+                "          \\");
+        System.out.println(" ~~~~~~~~~~/|~~~\n" +
+                "         c'__,={");
+        System.out.println("" +
+                " \n" +
+                "/   (  .' .   \\\n" +
+                "\\ ( ' ,_) ) \\_/\n" +
+                " (_ , /\\  ,_/\n" +
+                "   '--\\ `\\--`\n" +
+                "       \\ _\\\n" +
+                "      `\\ \\\n" +
+                "       _\\_\\\n" +
+                "       `\\\\\n" +
+                "         \\\\\n" +
+                "          \\");
+        System.out.println("" +
+                "           _\\|/^\n" +
+                "           (_oo\n" +
+                "            |  \n  " +
+                "         /|\\\n" +
+                "            |\n" +
+                "            LL\n");
+
+        System.out.println("" +
+                "                          |__                         o\\     \n" +
+                "                           | W                          \\O     \n" +
+                "                           |                             |\\_   \n" +
+                "____" +     "                       |                            /-\\    \n"+
+                "|DD|____T_" + "                 |                          /     \\   \n"+
+                "|_ |_____|<" +   "                |                          \n"+
+                "  @-@-@-oo\\                |\n"+
+                " ==========================================================================");
 
 
 
