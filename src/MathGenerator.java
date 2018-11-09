@@ -33,6 +33,11 @@ public class MathGenerator {
                     notReady = true;
                 }
             }
+
+
+            public static String difficulty (int) {}
+
+
             System.out.println("Alright, now choose your difficulty.\nEASY    MEDIUM    HARD");
             userResponse = user.nextLine();
             if (userResponse.equals("easy") || userResponse.equals("EASY")) {
@@ -55,17 +60,37 @@ public class MathGenerator {
 
         }
     }
-}
 
-public static String hangMan(int tries, boolean win){
-    String respsonse = "";
-    String feedback;
-    if (win){feedback = "Wow. You won. "}
+    public static String hangMan(int tries, boolean win) {
+        tries = 0;
+        win = true;
+        String mistake = "";
+        String feedback;
+        if (win) {
+            feedback = "Wow. You won.";
+        } else {
+            feedback = "Nope you wrong. Try again";
+        }
+        switch (tries) {
+
+            default:
+            case 0:
+                Scanner keyboardUser;
+                keyboardUser = new Scanner(System.in);
+                String newGame;
+                mistake = "   o/\\_\n" +
+                        feedback + " Guess again.";
+                break;
+            case 1:
+                mistake = "\"   o/\\\\_\\n\" +\n" +
+                        "                \"  <\\\\__,\\\\\\n\"" +
+                        feedback + " Guess again.";
+                break;
 
         }
-
-
-
+        return mistake;
+    }
+}
 
 
 
