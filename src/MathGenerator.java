@@ -10,6 +10,7 @@ public class MathGenerator {
         Scanner user;
         user = new Scanner(System.in);
         String guessedLetter;
+        int hangmanTries = 0;
 
         System.out.println("WELCOME TO HANGMAN.");
         System.out.println("HERE ARE THE RULES!");
@@ -22,7 +23,7 @@ public class MathGenerator {
 
         while (game) {
             while (notReady) {
-                System.out.println("ARE YOU READY?(Enter \"yes\" or \"no\"");
+                System.out.println("ARE YOU READY?(Enter \"yes\" or \"no\")");
                 userResponse = user.nextLine();
                 if (userResponse.equals("yes")) {
                     notReady = false;
@@ -33,42 +34,64 @@ public class MathGenerator {
                     notReady = true;
                 }
             }
-
-
-            public static String difficulty (int) {}
-
-
             System.out.println("Alright, now choose your difficulty.\nEASY    MEDIUM    HARD");
+            user = new Scanner(System.in);
             userResponse = user.nextLine();
             if (userResponse.equals("easy") || userResponse.equals("EASY")) {
-                String[] easyWords = {"favorite", "vacation", "quarter", "discover", "laughter", "inventor",};
-                int generatedNumber = (int) (Math.random() * 6);
-                System.out.println(easyWords[generatedNumber]);
-                System.out.println("Alright, now guess a letter.");
-
-            } else if (userResponse.equals("medium") || userResponse.equals("MEDIUM")) {
-                String[] mediumWords = {"outrageous", "religious", "permeate", "lucrative", "procrastinate", "serviceable"};
-                int generatedNumber = (int) (Math.random() * 6);
-                System.out.println(mediumWords[generatedNumber]);
-                System.out.println("Alright, now guess a letter.");
-            } else if (userResponse.equals("hard") || userResponse.equals("HARD")) {
-                String[] hardWords = {"propagandize", "massachusetts", "enzyme", "fuchsia", "lamborghini", "fettuccine"};
-                int generatedNumber = (int) (Math.random() * 6);
-                System.out.println(hardWords[generatedNumber]);
-                System.out.println("Alright, now guess a letter.");
+                System.out.println(difficulty(2, true));
             }
-
+            else if (userResponse.equals("medium") || userResponse.equals("MEDIUM")) {
+                System.out.println(difficulty(2,true));
+            }
+            else if (userResponse.equals("hard") || userResponse.equals("HARD")) {
+                System.out.print(difficulty(2, true));
+            }
         }
     }
+    public static String difficulty (int levels, boolean difficultyLevels) {
+        levels = 0;
+        difficultyLevels = true;
+        String easyMediumHard = "";
+        String hangmanWord;
+        switch (levels){
+            default:
+            case 0:
+                String[] easyWords = {"favorite", "vacation", "quarter", "discover", "laughter", "inventor",};
+                int generatedNumber = (int) (Math.random() * easyWords.length);
+                hangmanWord = easyWords[generatedNumber];
+                System.out.println(hangmanWord);
+                break;
+            case 1:
+                String[] mediumWords = {"outrageous", "religious", "permeate", "lucrative", "procrastinate", "serviceable"};
+                generatedNumber = (int) (Math.random() * mediumWords.length);
+                System.out.println(mediumWords[generatedNumber]);
+                hangmanWord = mediumWords[generatedNumber];
+                System.out.println(hangmanWord);
+                levels++;
+                break;
+            case 2:
+                String[] hardWords = {"propagandize", "massachusetts", "enzyme", "fuchsia", "lamborghini", "fettuccine"};
+                generatedNumber = (int) (Math.random() * hardWords.length);
+                System.out.println(hardWords[generatedNumber]);
+                hangmanWord = hardWords[generatedNumber];
+                System.out.println(hangmanWord);
+                levels++;
+                break;
+        }
+        return easyMediumHard;
 
+
+
+    }
     public static String hangMan(int tries, boolean win) {
         tries = 0;
         win = true;
-        String mistake = "";
+        String mistake;
         String feedback;
         if (win) {
             feedback = "Wow. You won.";
-        } else {
+        }
+        else {
             feedback = "Nope you wrong. Try again";
         }
         switch (tries) {
@@ -110,7 +133,36 @@ public class MathGenerator {
 
 
 
+
 /*
+
+userResponse = user.nextLine();
+            if (userResponse.equals("easy") || userResponse.equals("EASY")) {
+                String[] easyWords = {"favorite", "vacation", "quarter", "discover", "laughter", "inventor",};
+                int generatedNumber = (int) (Math.random() * 6);
+                System.out.println(easyWords[generatedNumber]);
+                System.out.println("Alright, now guess a letter.");
+
+            } else if (userResponse.equals("medium") || userResponse.equals("MEDIUM")) {
+                String[] mediumWords = {"outrageous", "religious", "permeate", "lucrative", "procrastinate", "serviceable"};
+                int generatedNumber = (int) (Math.random() * 6);
+                System.out.println(mediumWords[generatedNumber]);
+                System.out.println("Alright, now guess a letter.");
+            } else if (userResponse.equals("hard") || userResponse.equals("HARD")) {
+                String[] hardWords = {"propagandize", "massachusetts", "enzyme", "fuchsia", "lamborghini", "fettuccine"};
+                int generatedNumber = (int) (Math.random() * 6);
+                System.out.println(hardWords[generatedNumber]);
+                System.out.println("Alright, now guess a letter.");
+            }
+
+
+
+
+
+
+
+
+
 
         System.out.println("SELECT A PARTICIPANT");
 
