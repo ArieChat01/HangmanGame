@@ -9,8 +9,9 @@ public class MathGenerator {
         game = true;
         Scanner user;
         user = new Scanner(System.in);
+        String hangmanWord;
         String guessedLetter;
-        int hangmanTries = 0;
+        int hangman;
 
         System.out.println("WELCOME TO HANGMAN.");
         System.out.println("HERE ARE THE RULES!");
@@ -34,23 +35,31 @@ public class MathGenerator {
                     notReady = true;
                 }
             }
+            hangman = 0;
             System.out.println("Alright, now choose your difficulty.\nEASY    MEDIUM    HARD");
             user = new Scanner(System.in);
             userResponse = user.nextLine();
             if (userResponse.equals("easy") || userResponse.equals("EASY")) {
-                System.out.println(difficulty(2, true));
+                System.out.println(difficulty(hangman));
+                hangmanWord = difficulty(hangman);
             }
             else if (userResponse.equals("medium") || userResponse.equals("MEDIUM")) {
-                System.out.println(difficulty(2,true));
+                hangman ++;
+                System.out.println(difficulty(hangman));
+                hangmanWord = difficulty(hangman);
             }
             else if (userResponse.equals("hard") || userResponse.equals("HARD")) {
-                System.out.print(difficulty(2, true));
+                hangman+=2;
+                System.out.print(difficulty(hangman));
+                hangmanWord = difficulty(hangman);
             }
+
+
+
+
         }
     }
-    public static String difficulty (int levels, boolean difficultyLevels) {
-        levels = 0;
-        difficultyLevels = true;
+    public static String difficulty (int levels) {
         String easyMediumHard = "";
         String hangmanWord;
         switch (levels){
@@ -59,23 +68,16 @@ public class MathGenerator {
                 String[] easyWords = {"favorite", "vacation", "quarter", "discover", "laughter", "inventor",};
                 int generatedNumber = (int) (Math.random() * easyWords.length);
                 hangmanWord = easyWords[generatedNumber];
-                System.out.println(hangmanWord);
                 break;
             case 1:
                 String[] mediumWords = {"outrageous", "religious", "permeate", "lucrative", "procrastinate", "serviceable"};
                 generatedNumber = (int) (Math.random() * mediumWords.length);
                 System.out.println(mediumWords[generatedNumber]);
-                hangmanWord = mediumWords[generatedNumber];
-                System.out.println(hangmanWord);
-                levels++;
                 break;
             case 2:
                 String[] hardWords = {"propagandize", "massachusetts", "enzyme", "fuchsia", "lamborghini", "fettuccine"};
                 generatedNumber = (int) (Math.random() * hardWords.length);
                 System.out.println(hardWords[generatedNumber]);
-                hangmanWord = hardWords[generatedNumber];
-                System.out.println(hangmanWord);
-                levels++;
                 break;
         }
         return easyMediumHard;
@@ -105,11 +107,44 @@ public class MathGenerator {
                         feedback + " Guess again.";
                 break;
             case 1:
-                mistake = "\"   o/\\\\_\\n\" +\n" +
-                        "                \"  <\\\\__,\\\\\\n\"" +
+                mistake = "   o/\\\\_\\n\" +\n" +
+                        "                \"  <\\\\__,\\\\\\" +
                         feedback + " Guess again.";
                 break;
-
+            case 2:
+                mistake = "   o/\\\\_\\n\" +\n" +
+                        "                \"  <\\\\__,\\\\\\n\" +\n" +
+                        "                \"   \\\">   |\\";
+                        break;
+            case 3:
+                mistake = "   o/\\\\_\\n\" +\n" +
+                        "                \"  <\\\\__,\\\\\\n\" +\n" +
+                        "                \"   \\\">   |\\n\" +\n" +
+                        "                \"    `   |\\n";
+                        break;
+            case 4:
+                mistake = "   o/\\\\_\\n\" +\n" +
+                        "                \"  <\\\\__,\\\\\\n\" +\n" +
+                        "                \"   \\\">   |\\n\" +\n" +
+                        "                \"    `   |\\n\" +\n" +
+                        "                \"         \\\\\\n";
+                break;
+            case 5:
+                mistake = "   o/\\_\n" +
+                        "  <\\__,\\\n" +
+                        "   \">   |\n" +
+                        "    `   |\n" +
+                        "         \\\n" +
+                        "          \\";
+                break;
+            case 6:
+                mistake = "   o/\\_\n" +
+                        "  <\\__,\\\n" +
+                        "   \">   |\n" +
+                        "    `   |\n" +
+                        "         \\\n" +
+                        "          \\" +
+                        " ~~~~~~~~~~/|~~~\n";
         }
         return mistake;
     }
