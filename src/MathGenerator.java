@@ -12,21 +12,6 @@ public class MathGenerator {
         String hangmanWord;
         String guessedLetter;
         int hangman;
-        System.out.println("   o/\\_\n" +
-                "  <\\__,\\\n" +
-                "   \">   |\n" +
-                "    `   |\n" +
-                "         \\\n" +
-                "          \\" +
-                " ~~~~~~~~~~/|~~~\n" +
-                "         c'__,={\")");
-        System.out.println("\"\" +\n" +
-                "                        \"   o/   |\\\n" +
-                "                        \"  <\\\\__,   |\\\n" +
-                "                        \"   \\\">      \\\\\\\n" +
-                "                        \"    `      \\\\\n" +
-                "                        \" ~~~~~~~~~~/|~~~\\\n" +
-                "                        \"         c'__,={\\\")\";");
 
 
         System.out.println("WELCOME TO HANGMAN.");
@@ -57,15 +42,12 @@ public class MathGenerator {
             userResponse = user.nextLine();
             if (userResponse.equals("easy") || userResponse.equals("EASY")) {
                 System.out.println(difficulty(hangman));
-                hangmanWord = difficulty(hangman);
             } else if (userResponse.equals("medium") || userResponse.equals("MEDIUM")) {
                 hangman++;
                 System.out.println(difficulty(hangman));
-                hangmanWord = difficulty(hangman);
             } else if (userResponse.equals("hard") || userResponse.equals("HARD")) {
                 hangman += 2;
                 System.out.print(difficulty(hangman));
-                hangmanWord = difficulty(hangman);
             }
 
 
@@ -80,7 +62,7 @@ public class MathGenerator {
             case 0:
                 String[] easyWords = {"favorite", "vacation", "quarter", "discover", "laughter", "inventor",};
                 int generatedNumber = (int) (Math.random() * easyWords.length);
-                hangmanWord = easyWords[generatedNumber];
+                System.out.println(easyWords[generatedNumber]);
                 break;
             case 1:
                 String[] mediumWords = {"outrageous", "religious", "permeate", "lucrative", "procrastinate", "serviceable"};
