@@ -12,6 +12,22 @@ public class MathGenerator {
         String hangmanWord;
         String guessedLetter;
         int hangman;
+        System.out.println("   o/\\_\n" +
+                "  <\\__,\\\n" +
+                "   \">   |\n" +
+                "    `   |\n" +
+                "         \\\n" +
+                "          \\" +
+                " ~~~~~~~~~~/|~~~\n" +
+                "         c'__,={\")");
+        System.out.println("\"\" +\n" +
+                "                        \"   o/   |\\\n" +
+                "                        \"  <\\\\__,   |\\\n" +
+                "                        \"   \\\">      \\\\\\\n" +
+                "                        \"    `      \\\\\n" +
+                "                        \" ~~~~~~~~~~/|~~~\\\n" +
+                "                        \"         c'__,={\\\")\";");
+
 
         System.out.println("WELCOME TO HANGMAN.");
         System.out.println("HERE ARE THE RULES!");
@@ -42,27 +58,24 @@ public class MathGenerator {
             if (userResponse.equals("easy") || userResponse.equals("EASY")) {
                 System.out.println(difficulty(hangman));
                 hangmanWord = difficulty(hangman);
-            }
-            else if (userResponse.equals("medium") || userResponse.equals("MEDIUM")) {
-                hangman ++;
+            } else if (userResponse.equals("medium") || userResponse.equals("MEDIUM")) {
+                hangman++;
                 System.out.println(difficulty(hangman));
                 hangmanWord = difficulty(hangman);
-            }
-            else if (userResponse.equals("hard") || userResponse.equals("HARD")) {
-                hangman+=2;
+            } else if (userResponse.equals("hard") || userResponse.equals("HARD")) {
+                hangman += 2;
                 System.out.print(difficulty(hangman));
                 hangmanWord = difficulty(hangman);
             }
 
 
-
-
         }
     }
-    public static String difficulty (int levels) {
+
+    public static String difficulty(int levels) {
         String easyMediumHard = "";
         String hangmanWord;
-        switch (levels){
+        switch (levels) {
             default:
             case 0:
                 String[] easyWords = {"favorite", "vacation", "quarter", "discover", "laughter", "inventor",};
@@ -83,73 +96,337 @@ public class MathGenerator {
         return easyMediumHard;
 
 
-
     }
+
     public static String hangMan(int tries, boolean win) {
-        tries = 0;
-        win = true;
         String mistake;
         String feedback;
         if (win) {
             feedback = "Wow. You won.";
-        }
-        else {
+        } else {
             feedback = "Nope you wrong. Try again";
         }
         switch (tries) {
 
             default:
             case 0:
-                Scanner keyboardUser;
-                keyboardUser = new Scanner(System.in);
-                String newGame;
-                mistake = "   o/\\_\n" +
+                mistake = "    \\\n" +
                         feedback + " Guess again.";
                 break;
             case 1:
-                mistake = "   o/\\\\_\\n\" +\n" +
-                        "                \"  <\\\\__,\\\\\\" +
+                mistake = "    \\\n" +
+                        "   o/\\_\n" +
                         feedback + " Guess again.";
                 break;
             case 2:
-                mistake = "   o/\\\\_\\n\" +\n" +
-                        "                \"  <\\\\__,\\\\\\n\" +\n" +
-                        "                \"   \\\">   |\\";
-                        break;
+                mistake = "    \\\n" +
+                        "   o/\\_\n" +
+                        "  <\\__,\\\n" +
+                        feedback + " Guess again.";
+                break;
             case 3:
-                mistake = "   o/\\\\_\\n\" +\n" +
-                        "                \"  <\\\\__,\\\\\\n\" +\n" +
-                        "                \"   \\\">   |\\n\" +\n" +
-                        "                \"    `   |\\n";
-                        break;
+                mistake = "    \\\n" +
+                        "   o/\\_\n" +
+                        "  <\\__,\\\n" +
+                        "   \">   |\n" +
+                        feedback + "Guess again.";
+                break;
             case 4:
-                mistake = "   o/\\\\_\\n\" +\n" +
-                        "                \"  <\\\\__,\\\\\\n\" +\n" +
-                        "                \"   \\\">   |\\n\" +\n" +
-                        "                \"    `   |\\n\" +\n" +
-                        "                \"         \\\\\\n";
+                mistake = "    \\\n" +
+                        "   o/\\_\n" +
+                        "  <\\__,\\\n" +
+                        "   \">   |\n" +
+                        "    `   |\n" +
+                        feedback + "Guess again";
                 break;
             case 5:
-                mistake = "   o/\\_\n" +
+                mistake = "    \\\n" +
+                        "   o/\\_\n" +
                         "  <\\__,\\\n" +
                         "   \">   |\n" +
                         "    `   |\n" +
                         "         \\\n" +
-                        "          \\";
+                        feedback + "Guess again.";
                 break;
             case 6:
-                mistake = "   o/\\_\n" +
+                mistake = "    \\\n" +
+                        "   o/\\_\n" +
                         "  <\\__,\\\n" +
                         "   \">   |\n" +
                         "    `   |\n" +
                         "         \\\n" +
-                        "          \\" +
-                        " ~~~~~~~~~~/|~~~\n";
+                        "          \\\n" +
+                        feedback + "Guess again.";
+                break;
+            case 7:
+                mistake = "    \\\n" +
+                        "   o/\\_\n" +
+                        "  <\\__,\\\n" +
+                        "   \">   |\n" +
+                        "    `   |\n" +
+                        "         \\\n" +
+                        "          \\\n" +
+                        " ~~~~~~~~~~/|~~~\n" +
+                        feedback + "Guess again";
+                break;
+            case 8:
+                mistake = "    \\\n" +
+                        "   o/\\_\n" +
+                        "  <\\__,\\\n" +
+                        "   \">   |\n" +
+                        "    `   |\n" +
+                        "         \\\n" +
+                        "          \\\n" +
+                        " ~~~~~~~~~~/|~~~\n" +
+                        "         c'__,={" +
+                        feedback + "Guess again";
+                break;
+            case 9:
+                mistake = "         \\\n" +
+                        "          \\_\n" +
+                        "            \\\n" +
+                        "   o/       |\n" +
+                        "  <\\__,     |\n" +
+                        "    \">       \\\n" +
+                        "     `        \\\n" +
+                        " ~~~~~~~~~~/|~~~\n" +
+                        "         c'__,={" +
+                        feedback + "Guess again";
+                break;
+            case 10:
+                mistake = "         \\\n" +
+                        "          \\_\n" +
+                        "            \\\n" +
+                        "            |\n" +
+                        "            |\n" +
+                        "             \\\n" +
+                        "              \\\n" +
+                        " ~~~\\o/~~~~/|~~~\n" +
+                        "         c'__,={" +
+                        feedback + "Guess again";
+                break;
+            case 11:
+                mistake = "   _.--\"\"--._\n" +
+                        "    /  _    _  \\\n" +
+                        " _  ( (_\\  /_) )  _\n" +
+                        "{ \\._\\   /\\   /_./ }\n" +
+                        "/_\"=-.}______{.-=\"_\\\n" +
+                        " _  _.=(\"\"\"\")=._  _\n" +
+                        "(_'\"_.-\"`~~`\"-._\"'_)\n" +
+                        " {_\"            \"_}" +
+                        feedback + "YOU LOSE";
         }
         return mistake;
     }
-}
 
+    public static String hangManTwo(int triesTwo, boolean winTwo) {
+        String mistakeTwo;
+        String feedbackTwo;
+        if (winTwo) {
+            feedbackTwo = "Wow. You won.";
+        } else {
+            feedbackTwo = "Nope you wrong. Try again";
+        }
+        switch (triesTwo) {
+            default:
+            case 0:
+                mistakeTwo = "/   (  .' .   \\\n" +
+                        "\\ ( ' ,_) ) \\_/\n" +
+                        feedbackTwo + "Guess again";
+                break;
+            case 1:
+                mistakeTwo = "/   (  .' .   \\\n" +
+                        "\\ ( ' ,_) ) \\_/\n" +
+                        " (_ , /\\  ,_/\n" +
+                        "   '--\\ `\\--`\n" +
+                feedbackTwo + "Guess again";
+                break;
+            case 2:
+                mistakeTwo = "/   (  .' .   \\\n" +
+                        "\\ ( ' ,_) ) \\_/\n" +
+                        " (_ , /\\  ,_/\n" +
+                        "   '--\\ `\\--`\n" +
+                        "       \\ _\\\n" +
+                        "      `\\ \\\n" +
+                feedbackTwo + "Guess again";
+                break;
+            case 3:
+                mistakeTwo = "/   (  .' .   \\\n" +
+                        "\\ ( ' ,_) ) \\_/\n" +
+                        " (_ , /\\  ,_/\n" +
+                        "   '--\\ `\\--`\n" +
+                        "       \\ _\\\n" +
+                        "      `\\ \\\n" +
+                        "       _\\_\\\n" +
+                feedbackTwo + "Guess again";
+                break;
+            case 4:
+                mistakeTwo = "/   (  .' .   \\\n" +
+                        "\\ ( ' ,_) ) \\_/\n" +
+                        " (_ , /\\  ,_/\n" +
+                        "   '--\\ `\\--`\n" +
+                        "       \\ _\\\n" +
+                        "      `\\ \\\n" +
+                        "       _\\_\\\n" +
+                        "       `\\\\\n" +
+                feedbackTwo + "Guess again";
+                break;
+            case 5:
+                mistakeTwo = "/   (  .' .   \\\n" +
+                        "\\ ( ' ,_) ) \\_/\n" +
+                        " (_ , /\\  ,_/\n" +
+                        "   '--\\ `\\--`\n" +
+                        "       \\ _\\\n" +
+                        "      `\\ \\\n" +
+                        "       _\\_\\\n" +
+                        "       `\\\\\n" +
+                feedbackTwo + "Guess again";
+                break;
+            case 6:
+                mistakeTwo = "/   (  .' .   \\\n" +
+                        "\\ ( ' ,_) ) \\_/\n" +
+                        " (_ , /\\  ,_/\n" +
+                        "   '--\\ `\\--`\n" +
+                        "       \\ _\\\n" +
+                        "      `\\ \\\n" +
+                        "       _\\_\\\n" +
+                        "       `\\\\\n" +
+                        "         \\\\\n" +
+                feedbackTwo + "Guess again";
+                break;
+            case 7:
+                mistakeTwo = "/   (  .' .   \\\n" +
+                        "\\ ( ' ,_) ) \\_/\n" +
+                        " (_ , /\\  ,_/\n" +
+                        "   '--\\ `\\--`\n" +
+                        "       \\ _\\\n" +
+                        "      `\\ \\\n" +
+                        "       _\\_\\\n" +
+                        "       `\\\\\n" +
+                        "         \\\\\n" +
+                        "          \\\n"+
+                        "            \n"+
+                feedbackTwo + "Guess again";
+                break;
+            case 8:
+                mistakeTwo = "/   (  .' .   \\\n" +
+                        "\\ ( ' ,_) ) \\_/\n" +
+                        " (_ , /\\  ,_/\n" +
+                        "   '--\\ `\\--`\n" +
+                        "       \\ _\\\n" +
+                        "      `\\ \\\n" +
+                        "       _\\_\\\n" +
+                        "       `\\\\\n" +
+                        "         \\\\\n" +
+                        "          \\\n"+
+                        "            \n" +
+                        "           _\\|/^\n" +
+                feedbackTwo + "Guess again";
+                break;
+            case 9:
+                mistakeTwo = "/   (  .' .   \\\n" +
+                        "\\ ( ' ,_) ) \\_/\n" +
+                        " (_ , /\\  ,_/\n" +
+                        "   '--\\ `\\--`\n" +
+                        "       \\ _\\\n" +
+                        "      `\\ \\\n" +
+                        "       _\\_\\\n" +
+                        "       `\\\\\n" +
+                        "         \\\\\n" +
+                        "          \\\n"+
+                        "            \n" +
+                        "           _\\|/^\n" +
+                        "           (_oo\n" +
+                feedbackTwo + "Guess again";
+                break;
+            case 10:
+                mistakeTwo = "/   (  .' .   \\\n" +
+                        "\\ ( ' ,_) ) \\_/\n" +
+                        " (_ , /\\  ,_/\n" +
+                        "   '--\\ `\\--`\n" +
+                        "       \\ _\\\n" +
+                        "      `\\ \\\n" +
+                        "       _\\_\\\n" +
+                        "       `\\\\\n" +
+                        "         \\\\\n" +
+                        "          \\\n"+
+                        "            \n" +
+                        "           _\\|/^\n" +
+                        "           (_oo\n" +
+                        "            |  \n  " +
+                feedbackTwo + "Guess again";
+                break;
+            case 11:
+                mistakeTwo = "/   (  .' .   \\\n" +
+                        "\\ ( ' ,_) ) \\_/\n" +
+                        " (_ , /\\  ,_/\n" +
+                        "   '--\\ `\\--`\n" +
+                        "       \\ _\\\n" +
+                        "      `\\ \\\n" +
+                        "       _\\_\\\n" +
+                        "       `\\\\\n" +
+                        "         \\\\\n" +
+                        "          \\\n"+
+                        "            \n"+
+                        "           _\\|/^\n" +
+                        "           (_oo\n" +
+                        "            |  \n  " +
+                        "         /|\\\n" +
+                feedbackTwo + "Guess again";
+                break;
+            case 12:
+                mistakeTwo = "/   (  .' .   \\\n" +
+                        "\\ ( ' ,_) ) \\_/\n" +
+                        " (_ , /\\  ,_/\n" +
+                        "   '--\\ `\\--`\n" +
+                        "       \\ _\\\n" +
+                        "      `\\ \\\n" +
+                        "       _\\_\\\n" +
+                        "       `\\\\\n" +
+                        "         \\\\\n" +
+                        "          \\\n"+
+                        "            \n"+
+                        "           _\\|/^\n" +
+                        "           (_oo\n" +
+                        "            |  \n  " +
+                        "         /|\\\n" +
+                        "            |\n" +
+                feedbackTwo + "Guess again";
+                break;
+            case 13:
+                mistakeTwo = "/   (  .' .   \\\n" +
+                        "\\ ( ' ,_) ) \\_/\n" +
+                        " (_ , /\\  ,_/\n" +
+                        "   '--\\ `\\--`\n" +
+                        "       \\ _\\\n" +
+                        "      `\\ \\\n" +
+                        "       _\\_\\\n" +
+                        "       `\\\\\n" +
+                        "         \\\\\n" +
+                        "          \\\n"+
+                        "            \n"+
+                        "           _\\|/^\n" +
+                        "           (_oo\n" +
+                        "            |  \n  " +
+                        "         /|\\\n" +
+                        "            |\n" +
+                        "            LL\n" +
+                feedbackTwo + "Guess again";
+                break;
+            case 14:
+                mistakeTwo = "   _.--\"\"--._\n" +
+                        "    /  _    _  \\\n" +
+                        " _  ( (_\\  /_) )  _\n" +
+                        "{ \\._\\   /\\   /_./ }\n" +
+                        "/_\"=-.}______{.-=\"_\\\n" +
+                        " _  _.=(\"\"\"\")=._  _\n" +
+                        "(_'\"_.-\"`~~`\"-._\"'_)\n" +
+                        " {_\"            \"_}" +
+                        feedbackTwo + "YOU LOSE";
+        }
+        return mistakeTwo;
+    }
+}
 
 
 
@@ -201,31 +478,19 @@ userResponse = user.nextLine();
 
         System.out.println("SELECT A PARTICIPANT");
 
-        System.out.println("  \\\n" +
+
+
+                System.out.println("    \\\n" +
                 "   o/\\_\n" +
                 "  <\\__,\\\n" +
                 "   \">   |\n" +
                 "    `   |\n" +
                 "         \\\n" +
-                "          \\" +
+                "          \\\n" +
                 " ~~~~~~~~~~/|~~~\n" +
                 "         c'__,={");
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        System.out.println("" +
+System.out.println("" +
                 " \n" +
                 "/   (  .' .   \\\n" +
                 "\\ ( ' ,_) ) \\_/\n" +
@@ -236,7 +501,7 @@ userResponse = user.nextLine();
                 "       _\\_\\\n" +
                 "       `\\\\\n" +
                 "         \\\\\n" +
-                "          \\"+
+                "          \\\n"+
                 "           _\\|/^\n" +
                 "           (_oo\n" +
                 "            |  \n  " +
