@@ -7,6 +7,7 @@ public class MathGenerator {
         boolean notReady, game;
         notReady = true;
         game = true;
+        boolean difficulty = true;
         Scanner user;
         user = new Scanner(System.in);
         String hangmanWord;
@@ -25,8 +26,7 @@ public class MathGenerator {
         System.out.println("I'M NOT TOO UNKIND THOUGH. YOU WILL RECEIVE 3 HINTS EVERY ROUND. HOWEVER EVERY HINT ACCEPTED " +
                 "WILL AFFECT THE AMOUNT OF POINTS YOU ARE ABLE TO RECEIVE FOR EACH ADDITIONAL LETTER.");
 
-        while (game) {
-            while (notReady) {
+        while (notReady) {
                 System.out.println("ARE YOU READY?(Enter \"yes\" or \"no\")");
                 userResponse = user.nextLine();
                 if (userResponse.equals("yes")) {
@@ -41,29 +41,43 @@ public class MathGenerator {
                 }
             }
             hangman = 0;
-            System.out.println("Alright, now choose your difficulty.\nEASY    MEDIUM    HARD");
-            user = new Scanner(System.in);
-            userResponse = user.nextLine();
-            if (userResponse.equals("easy") || userResponse.equals("EASY")) {
+            System.out.println("Now choose your difficulty.\nEASY    MEDIUM    HARD");
+            while(difficulty) {
+                user = new Scanner(System.in);
+                userResponse = user.nextLine();
+
+                if (userResponse.equals("easy") || userResponse.equals("EASY")) {
+                    difficulty = false;
+                }
+                if (userResponse.equals("medium") || userResponse.equals("MEDIUM")) {
+                    difficulty = false;
+                    hangman++;
+                }
+                if (userResponse.equals("hard") || userResponse.equals("HARD")) {
+                    difficulty = false;
+                    hangman += 2;
+                }
+                else if (!userResponse.equals("easy") || !userResponse.equals("EASY") || !userResponse.equals("medium") || !userResponse.equals("MEDIUM") ||
+                        !userResponse.equals("hard") || !userResponse.equals("HARD")) {
+                    System.out.println("Nah Bruh. Read the instructions.");
+                    difficulty = true;
+                }
             }
-            else if (userResponse.equals("medium") || userResponse.equals("MEDIUM")) {
-                hangman++;
-            }
-            else if (userResponse.equals("hard") || userResponse.equals("HARD")) {
-                hangman += 2;
-            }
+            //System.out.println("NOW... CHOOSE YOUR MAN.");
+
             hangmanWord = difficulty(hangman);
             System.out.println(hangmanWord);
             System.out.println("GUESS!!!");
+        while (game) {
             guessedLetter = user.nextLine().toLowerCase();
             if (guessedLetterRight(hangmanWord, guessedLetter)){
-                System.out.print("That's odd, that seems to bhe correct.");
+                System.out.print("That's odd, that seems to be correct. Guess again.");
             }
             else {
                 System.out.println(hangMan(hangmanTries, false));
                 hangmanTries ++;
             }
-            if (hangmanTries>12){
+            if (hangmanTries>11){
                 game = false;
                 System.out.println(hangMan(hangmanTries, false));
             }
@@ -107,7 +121,7 @@ public class MathGenerator {
         if (win) {
             feedback = "Wow. You won.";
         } else {
-            feedback = "Nope you wrong. Try again";
+            feedback = "Nope you wrong. Try again.\n";
         }
         switch (tries) {
 
@@ -222,7 +236,7 @@ public class MathGenerator {
         return mistake;
     }
 
-    public static String hangManTwo(int triesTwo, boolean winTwo) {
+    /*public static String hangManTwo(int triesTwo, boolean winTwo) {
         String mistakeTwo;
         String feedbackTwo;
         if (winTwo) {
@@ -428,142 +442,13 @@ public class MathGenerator {
                         feedbackTwo + "YOU LOSE";
         }
         return mistakeTwo;
-    }
-    public static boolean guessedLetterRight(String secretWord, String userLetter) {
-        return secretWord.contains(userLetter.toLowerCase());
+    }*/
+    public static boolean guessedLetterRight(String secretWord, String guessedLetter) {
+        System.out.println("dfhfgbjkfbhsdjkfb");
+        return secretWord.contains(guessedLetter.toLowerCase());
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-
-userResponse = user.nextLine();
-            if (userResponse.equals("easy") || userResponse.equals("EASY")) {
-                String[] easyWords = {"favorite", "vacation", "quarter", "discover", "laughter", "inventor",};
-                int generatedNumber = (int) (Math.random() * 6);
-                System.out.println(easyWords[generatedNumber]);
-                System.out.println("Alright, now guess a letter.");
-
-            } else if (userResponse.equals("medium") || userResponse.equals("MEDIUM")) {
-                String[] mediumWords = {"outrageous", "religious", "permeate", "lucrative", "procrastinate", "serviceable"};
-                int generatedNumber = (int) (Math.random() * 6);
-                System.out.println(mediumWords[generatedNumber]);
-                System.out.println("Alright, now guess a letter.");
-            } else if (userResponse.equals("hard") || userResponse.equals("HARD")) {
-                String[] hardWords = {"propagandize", "massachusetts", "enzyme", "fuchsia", "lamborghini", "fettuccine"};
-                int generatedNumber = (int) (Math.random() * 6);
-                System.out.println(hardWords[generatedNumber]);
-                System.out.println("Alright, now guess a letter.");
-            }
-
-
-
-
-
-
-
-
-
-
-        System.out.println("SELECT A PARTICIPANT");
-
-
-
-                System.out.println("    \\\n" +
-                "   o/\\_\n" +
-                "  <\\__,\\\n" +
-                "   \">   |\n" +
-                "    `   |\n" +
-                "         \\\n" +
-                "          \\\n" +
-                " ~~~~~~~~~~/|~~~\n" +
-                "         c'__,={");
-
-System.out.println("" +
-                " \n" +
-                "/   (  .' .   \\\n" +
-                "\\ ( ' ,_) ) \\_/\n" +
-                " (_ , /\\  ,_/\n" +
-                "   '--\\ `\\--`\n" +
-                "       \\ _\\\n" +
-                "      `\\ \\\n" +
-                "       _\\_\\\n" +
-                "       `\\\\\n" +
-                "         \\\\\n" +
-                "          \\\n"+
-                "           _\\|/^\n" +
-                "           (_oo\n" +
-                "            |  \n  " +
-                "         /|\\\n" +
-                "            |\n" +
-                "            LL\n");
-
-*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        /* System.out.println("_____________________\n\n");
-        System.out.println("" +
-                "     /:\"\"|       .@@@@@,\n" +
-                "     |: 66|_      @@@@@@@@,\n" +
-                "     C     _)     aa`@@@@@@\n" +
-                "      \\ ._|      (_   ?@@@@\n" +
-                "       ) /        =' @@@@\"\n" +
-                "      /`\\\\         \\(```\n" +
-                "     || |Y|       //`\\        .\"~~~~~\".\n" +
-                "     || |#|      / | ||       |  .:.  |\n" +
-                "     || |#|      \\ | ||    A  | /6 6\\ |\n" +
-                "     || |#|      / | ||   |~|_|_\\ e /_|_     .@@@@,\n" +
-                "     :| |=:     /  | |\\   |_|)___`\"`___(8    aa`@@@,\n" +
-                "     ||_|,|    |   |_| \\     |~~~~~~~~~|     =  `@@@\n" +
-                "     \\)))||    |   (((  |    \\_________/       )_/`@'\n" +
-                "  |~~~`-`~~~|  `~\\~~~~~~|     |/ /_\\ \\|       / || @\n" +
-                "  |         |     `\\   /      ()/___\\()       | || @\n" +
-                "  |_________|       ( ||      ||~~~~~||       /~|| \"`\n" +
-                "  |_________|       | ||      ||     ||      /__W_\\\n" +
-                "      | ||          | ||      ||     ||        |||\n" +
-                "      |_||__      __|_||      ||_____||       _|||\n" +
-                "      (____))    (:;:;))      ||-----||      ((___)");
-        System.out.println("       BILL       DEBRA       LIL JOHNNY      SUSIE    ");*/
 
 
 
