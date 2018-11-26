@@ -16,6 +16,7 @@ public class MathGenerator {
         String guessedLetter;
         int hangman;
         int hangmanTries;
+        String blankSpace;
         hangmanTries = 0;
         int score = 1000;
 
@@ -59,107 +60,20 @@ public class MathGenerator {
                 if (userResponse.equals("hard")) {
                     difficulty = false;
                     hangman += 2;
-                } else if (!userResponse.equals("easy") && !userResponse.equals("medium") && !userResponse.equals("hard")) {
+                }
+                else if (!userResponse.equals("easy") && !userResponse.equals("medium") && !userResponse.equals("hard")){
                     System.out.println("Nah Bruh. Read the instructions.");
                     difficulty = true;
                 }
             }
             hangmanWord = difficulty(hangman);
-            System.out.println(hangmanWord);
-
-            System.out.println("NOW... CHOOSE YOUR MAN.");
-            System.out.println("    \\\n" +
-                    "   o/\\_\n" +
-                    "  <\\__,\\\n" +
-                    "   \">   |\n" +
-                    "    `   |\n" +
-                    "         \\\n" +
-                    "          \\\n" +
-                    " ~~~~~~~~~~/|~~~\n" +
-                    "         c'__,={\n" +
-                    "          \n BOB        ");
-            System.out.println("         \n  \\\\OR\\\\");
-            System.out.println("/   (  .' .   \\\n" +
-                    "\\ ( ' ,_) ) \\_/\n" +
-                    " (_ , /\\  ,_/\n" +
-                    "   '--\\ `\\--`\n" +
-                    "       \\ _\\\n" +
-                    "      `\\ \\\n" +
-                    "       _\\_\\\n" +
-                    "       `\\\\\n" +
-                    "         \\\\\n" +
-                    "          \\\n" +
-                    "            \n" +
-                    "           _\\|/^\n" +
-                    "           (_oo\n" +
-                    "            |  \n  " +
-                    "         /|\\\n" +
-                    "            |\n" +
-                    "            LL\n" +
-                    "            \n  TED           ");
-            while (man) {
-                userResponse = user.nextLine().toLowerCase();
-                if (userResponse.equals("bob")) {
-                    man = false;
-                    game = true;
-                    gameTwo = false;
-
-                } else if (userResponse.equals("ted")) {
-                    man = false;
-                    game = false;
-                    gameTwo = true;
-
-                } else if (!userResponse.equals("bob") && !userResponse.equals("ted")) {
-                    System.out.println("No imbecile, choose Bob or Ted.");
-                    man = true;
-                    game = false;
-                    gameTwo = false;
-                }
-            }
-
-
+            System.out.println(hangmanWord );
             System.out.println("GUESS!!!");
-            while (game) {
-                System.out.println("YOUR SCORE: " + score + ".");
-                guessedLetter = user.nextLine().toLowerCase();
-                if (guessedLetterRight(hangmanWord, guessedLetter)) {
-                    System.out.print("That's odd, that seems to be correct.");
-                    score += 50;
-                } else {
-                    System.out.println(hangMan(hangmanTries, false));
-                    hangmanTries++;
-                    score -= 10;
-                }
-                if (hangmanTries > 11) {
-                    score -= 150;
-                    gameTwo = false;
-                    System.out.println(hangMan(hangmanTries, false));
-                    break;
-                }
-                if (hangmanWord.equalsIgnoreCase(guessedLetter) && hangmanTries == 11) {
-                    score += 750;
-                    System.out.println("LAST CHANCE ACHIEVEMENT!");
-                    gameTwo = false;
-                    break;
-                }
-                if (hangmanWord.equalsIgnoreCase(guessedLetter) && hangmanTries == 0) {
-                    score += 1000;
-                    System.out.println("Did you cheat?");
-                    gameTwo = false;
-                    break;
-                }
-                if (hangmanWord.equalsIgnoreCase(guessedLetter)) {
-                    System.out.println(hangMan(hangmanTries, true));
-                    score += 500;
-                    gameTwo = false;
-                    break;
-                }
-                alphabet = Beta(alphabet,guessedLetter);
-                System.out.println(" ");
-                for(String letter: alphabet){
-                    System.out.print(letter);
-                }
-                System.out.println(" ");
+        while (game) {
+            guessedLetter = user.nextLine().toLowerCase();
+            if (guessedLetterRight(hangmanWord, guessedLetter)){
+                System.out.print("That's odd, that seems to be correct. Guess again.\n");
+                game = true;
             }
 
 
@@ -201,7 +115,14 @@ public class MathGenerator {
                 }
                 System.out.println(" ");
             }
-
+            if (hangmanTries>11){
+                game = false;
+                System.out.println(hangMan(hangmanTries, false));
+            }
+            if (hangmanWord.equalsIgnoreCase(guessedLetter)){
+                System.out.println(hangMan(hangmanTries, true));
+                break;
+            }
         }
     }
 
@@ -299,7 +220,7 @@ public class MathGenerator {
                         "         \\\n" +
                         "          \\\n" +
                         " ~~~~~~~~~~/|~~~\n" +
-                        feedback + " Guess again.";
+                        feedback + " Guess again";
                 break;
             case 8:
                 mistake = "    \\\n" +
@@ -310,8 +231,8 @@ public class MathGenerator {
                         "         \\\n" +
                         "          \\\n" +
                         " ~~~~~~~~~~/|~~~\n" +
-                        "         c'__,={\n" +
-                        feedback + " Guess again.";
+                        "         c'__,={" +
+                        feedback + " Guess again";
                 break;
             case 9:
                 mistake = "         \\\n" +
@@ -322,8 +243,8 @@ public class MathGenerator {
                         "    \">       \\\n" +
                         "     `        \\\n" +
                         " ~~~~~~~~~~/|~~~\n" +
-                        "         c'__,={\n" +
-                        feedback + " Guess again.";
+                        "         c'__,={" +
+                        feedback + " Guess again";
                 break;
             case 10:
                 mistake = "         \\\n" +
@@ -334,8 +255,8 @@ public class MathGenerator {
                         "             \\\n" +
                         "              \\\n" +
                         " ~~~\\o/~~~~/|~~~\n" +
-                        "         c'__,={\n" +
-                        feedback + " Guess again.";
+                        "         c'__,={" +
+                        feedback + " Guess again";
                 break;
             case 11:
                 mistake = "     _.--\"\"--._\n" +
@@ -345,9 +266,8 @@ public class MathGenerator {
                         "/_\"=-.}______{.-=\"_\\\n" +
                         " _  _.=(\"\"\"\")=._  _\n" +
                         "(_'\"_.-\"`~~`\"-._\"'_)\n" +
-                        " {_\"            \"_}\n\n" +
-                        feedback + " YOU LOSE.";
-                break;
+                        " {_\"            \"_}" +
+                        feedback + "\nYOU LOSE";
         }
         return mistake;
     }
@@ -561,6 +481,7 @@ public class MathGenerator {
     }
 
     public static boolean guessedLetterRight(String secretWord, String guessedLetter) {
+        //System.out.println("The "+secretWord + " contains " + guessedLetter + ": "+ secretWord.contains(guessedLetter));
         return secretWord.contains(guessedLetter);
     }
 
