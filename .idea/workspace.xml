@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33e74754-3afe-45a3-b4ac-b38d83634171" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HangmanGame/MathGenerator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HangmanGame/MathGenerator.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MathGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MathGenerator.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -43,8 +45,8 @@
       <file leaf-file-name="MathGenerator.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/MathGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="448">
-              <caret line="600" column="57" lean-forward="true" selection-start-line="600" selection-start-column="57" selection-end-line="600" selection-end-column="57" />
+            <state relative-caret-position="362">
+              <caret line="216" column="29" selection-start-line="216" selection-start-column="29" selection-end-line="216" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -84,10 +86,10 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="ProjectPane" />
       <pane id="AndroidView" />
       <pane id="Scope" />
+      <pane id="ProjectPane" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -222,6 +224,20 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/MathGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3672">
+          <caret line="216" column="29" lean-forward="true" selection-start-line="216" selection-start-column="29" selection-end-line="216" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MathGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="10200">
+          <caret line="600" column="57" lean-forward="true" selection-start-line="600" selection-start-column="57" selection-end-line="600" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MathGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
         </state>
@@ -306,8 +322,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MathGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="600" column="57" lean-forward="true" selection-start-line="600" selection-start-column="57" selection-end-line="600" selection-end-column="57" />
+        <state relative-caret-position="362">
+          <caret line="216" column="29" selection-start-line="216" selection-start-column="29" selection-end-line="216" selection-end-column="29" />
         </state>
       </provider>
     </entry>

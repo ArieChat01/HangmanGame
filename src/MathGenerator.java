@@ -19,6 +19,7 @@ public class MathGenerator {
         int hangmanTries;
         hangmanTries = 0;
         int score = 1000;
+        String phraseEmptiness = " ";
 
 
         System.out.println("WELCOME TO HANGMAN.");
@@ -116,9 +117,6 @@ public class MathGenerator {
             }
             hangmanWord = difficulty(hangman);
             System.out.println(hangmanWord);
-            for (int i = 0; i >= hangmanWord.length(); i++) {
-                System.out.println(blankSpaces[i]);
-            }
             System.out.println("Now guess a letter.");
 
             while (game) {
@@ -596,10 +594,10 @@ public class MathGenerator {
             return args;
         }
 
-        public static String letterReplacementDashes(String word,String guess, String guessPhrase){
-        for (int position = 0; position <=word.length(); position ++){
+        public static String letterReplacementDashes(String word, String guess, String guessPhrase){
+        for (int position = 0; position <= word.length(); position ++){
             if(guess.charAt(0) == word.charAt(position)){
-                guessPhrase.substring(0,position) + guess +guessPhrase.substring(position+1);
+                guessPhrase = guessPhrase.substring(0,position) + guess + guessPhrase.substring(position+1);
             }
 
         }
