@@ -48,8 +48,8 @@ public class MathGenerator {
                 }
             }
             hangman = 0;
-            System.out.println("\nNow choose your difficulty.\nEASY    MEDIUM    HARD");
             while (difficulty) {
+                System.out.println("\nNow choose your difficulty.\nEASY    MEDIUM    HARD");
                 user = new Scanner(System.in);
                 userResponse = user.nextLine().toLowerCase();
 
@@ -67,6 +67,7 @@ public class MathGenerator {
                     System.out.println("Nah Bruh. Read the instructions.");
                     difficulty = true;
                 }
+                while (man) {
                 System.out.println("NOW... CHOOSE YOUR MAN.");
                 System.out.println("    \\\n" +
                         "   o/\\_\n" +
@@ -97,7 +98,7 @@ public class MathGenerator {
                         "            |\n" +
                         "            LL\n" +
                         "            \n  TED           ");
-                while (man) {
+
                     userResponse = user.nextLine().toLowerCase();
                     if (userResponse.equals("bob")) {
                         man = false;
@@ -218,12 +219,20 @@ public class MathGenerator {
                         userResponse = user.nextLine().toLowerCase();
                         if (userResponse.equals("yes")) {
                             difficulty = true;
-                            yes = false;
                         }
                     }
                     if (userResponse.equals("no")){
                         difficulty = false;
+                    }
+                    System.out.print("Would you like to choose a new stick man? Enter \"yes\" or \"no\".");
+                    userResponse = user.nextLine().toLowerCase();
+                    if (userResponse.equals("yes")) {
                         yes = false;
+                        man = true;
+                    }
+                    if (userResponse.equals("no")){
+                        yes = false;
+                        man = false;
                     }
                 }
                     if (userResponse.equals("no")) {
@@ -245,6 +254,7 @@ public class MathGenerator {
                 if (!userResponse.equals("yes") && !userResponse.equals("no")) {
                     playAgain = true;
                     wholeGame = false;
+                    yes = false;
                 }
 
             }
@@ -279,7 +289,8 @@ public class MathGenerator {
         public static String hangMan ( int tries, boolean win){
             String mistake;
             String feedback;
-            String triesFeedback;
+            String triesFeed = "Tries Left: ";
+            int triesFeedback = 12;
             if (win) {
                 feedback = "Wow. You won.";
             } else {
@@ -290,25 +301,29 @@ public class MathGenerator {
                 default:
                 case 0:
                     mistake = "    \\\n" +
-                            feedback + " Guess again.";
+                            feedback + " Guess again." + triesFeed + triesFeedback;
+                    triesFeedback --;
                     break;
                 case 1:
                     mistake = "    \\\n" +
                             "   o/\\_\n" +
-                            feedback + " Guess again.";
+                            feedback + " Guess again." + triesFeed + triesFeedback;
+                    triesFeedback --;
                     break;
                 case 2:
                     mistake = "    \\\n" +
                             "   o/\\_\n" +
                             "  <\\__,\\\n" +
-                            feedback + " Guess again.";
+                            feedback + " Guess again." + triesFeed + triesFeedback;
+                    triesFeedback --;
                     break;
                 case 3:
                     mistake = "    \\\n" +
                             "   o/\\_\n" +
                             "  <\\__,\\\n" +
                             "   \">   |\n" +
-                            feedback + " Guess again.";
+                            feedback + " Guess again." + triesFeed + triesFeedback;
+                    triesFeedback --;
                     break;
                 case 4:
                     mistake = "    \\\n" +
@@ -316,7 +331,8 @@ public class MathGenerator {
                             "  <\\__,\\\n" +
                             "   \">   |\n" +
                             "    `   |\n" +
-                            feedback + " Guess again";
+                            feedback + " Guess again" + triesFeed + triesFeedback;
+                    triesFeedback --;
                     break;
                 case 5:
                     mistake = "    \\\n" +
@@ -325,7 +341,8 @@ public class MathGenerator {
                             "   \">   |\n" +
                             "    `   |\n" +
                             "         \\\n" +
-                            feedback + " Guess again.";
+                            feedback + " Guess again." + triesFeed + triesFeedback;
+                    triesFeedback --;
                     break;
                 case 6:
                     mistake = "    \\\n" +
@@ -335,7 +352,8 @@ public class MathGenerator {
                             "    `   |\n" +
                             "         \\\n" +
                             "          \\\n" +
-                            feedback + " Guess again.";
+                            feedback + " Guess again." + triesFeed + triesFeedback;
+                    triesFeedback --;
                     break;
                 case 7:
                     mistake = "    \\\n" +
@@ -346,7 +364,8 @@ public class MathGenerator {
                             "         \\\n" +
                             "          \\\n" +
                             " ~~~~~~~~~~/|~~~\n" +
-                            feedback + " Guess again";
+                            feedback + " Guess again" + triesFeed + triesFeedback;
+                    triesFeedback --;
                     break;
                 case 8:
                     mistake = "    \\\n" +
@@ -358,7 +377,8 @@ public class MathGenerator {
                             "          \\\n" +
                             " ~~~~~~~~~~/|~~~\n" +
                             "         c'__,={" +
-                            feedback + " Guess again";
+                            feedback + " Guess again" + triesFeed + triesFeedback;
+                    triesFeedback --;
                     break;
                 case 9:
                     mistake = "         \\\n" +
@@ -370,7 +390,7 @@ public class MathGenerator {
                             "     `        \\\n" +
                             " ~~~~~~~~~~/|~~~\n" +
                             "         c'__,={" +
-                            feedback + " Guess again";
+                            feedback + " Guess again" + triesFeed + triesFeedback;
                     break;
                 case 10:
                     mistake = "         \\\n" +
@@ -382,7 +402,7 @@ public class MathGenerator {
                             "              \\\n" +
                             " ~~~\\o/~~~~/|~~~\n" +
                             "         c'__,={" +
-                            feedback + " Guess again";
+                            feedback + " Guess again" + "\n  \\\\ WARNING \\\\  \n You have one try left.";
                     break;
                 case 11:
                     mistake = "         .-.\n" +
@@ -397,24 +417,28 @@ public class MathGenerator {
         public static String hangManTwo ( int triesTwo, boolean winTwo){
             String mistakeTwo;
             String feedbackTwo;
+            String triesFeed = "Tries Left: ";
+            int triesFeedback = 15;
             if (winTwo) {
                 feedbackTwo = "Wow. You won.";
             } else {
-                feedbackTwo = "Nope you wrong. Try again";
+                feedbackTwo = "\nNope you wrong.\n Try again";
             }
             switch (triesTwo) {
                 default:
                 case 0:
                     mistakeTwo = "/   (  .' .   \\\n" +
                             "\\ ( ' ,_) ) \\_/\n" +
-                            feedbackTwo + " Guess again";
+                            feedbackTwo + " Guess again" + triesFeed + triesFeedback;
+                    triesFeedback --;
                     break;
                 case 1:
                     mistakeTwo = "/   (  .' .   \\\n" +
                             "\\ ( ' ,_) ) \\_/\n" +
                             " (_ , /\\  ,_/\n" +
                             "   '--\\ `\\--`\n" +
-                            feedbackTwo + " Guess again";
+                            feedbackTwo + " Guess again " + triesFeed + triesFeedback;
+                    triesFeedback --;
                     break;
                 case 2:
                     mistakeTwo = "/   (  .' .   \\\n" +
@@ -423,7 +447,8 @@ public class MathGenerator {
                             "   '--\\ `\\--`\n" +
                             "       \\ _\\\n" +
                             "      `\\ \\\n" +
-                            feedbackTwo + " Guess again";
+                            feedbackTwo + " Guess again" + triesFeed + triesFeedback;
+                    triesFeedback --;
                     break;
                 case 3:
                     mistakeTwo = "/   (  .' .   \\\n" +
@@ -433,7 +458,8 @@ public class MathGenerator {
                             "       \\ _\\\n" +
                             "      `\\ \\\n" +
                             "       _\\_\\\n" +
-                            feedbackTwo + " Guess again";
+                            feedbackTwo + " Guess again" + triesFeed + triesFeedback;
+                    triesFeedback --;
                     break;
                 case 4:
                     mistakeTwo = "/   (  .' .   \\\n" +
@@ -444,7 +470,8 @@ public class MathGenerator {
                             "      `\\ \\\n" +
                             "       _\\_\\\n" +
                             "       `\\\\\n" +
-                            feedbackTwo + " Guess again";
+                            feedbackTwo + " Guess again" + triesFeed + triesFeedback;
+                    triesFeedback --;
                     break;
                 case 5:
                     mistakeTwo = "/   (  .' .   \\\n" +
@@ -455,7 +482,8 @@ public class MathGenerator {
                             "      `\\ \\\n" +
                             "       _\\_\\\n" +
                             "       `\\\\\n" +
-                            feedbackTwo + " Guess again";
+                            feedbackTwo + " Guess again" + triesFeed + triesFeedback;
+                    triesFeedback --;
                     break;
                 case 6:
                     mistakeTwo = "/   (  .' .   \\\n" +
@@ -467,7 +495,8 @@ public class MathGenerator {
                             "       _\\_\\\n" +
                             "       `\\\\\n" +
                             "         \\\\\n" +
-                            feedbackTwo + " Guess again";
+                            feedbackTwo + " Guess again" + triesFeed + triesFeedback;
+                    triesFeedback --;
                     break;
                 case 7:
                     mistakeTwo = "/   (  .' .   \\\n" +
@@ -481,7 +510,8 @@ public class MathGenerator {
                             "         \\\\\n" +
                             "          \\\n" +
                             "            \n" +
-                            feedbackTwo + " Guess again";
+                            feedbackTwo + " Guess again" + triesFeed + triesFeedback;
+                    triesFeedback --;
                     break;
                 case 8:
                     mistakeTwo = "/   (  .' .   \\\n" +
@@ -496,7 +526,8 @@ public class MathGenerator {
                             "          \\\n" +
                             "            \n" +
                             "           _\\|/^\n" +
-                            feedbackTwo + " Guess again";
+                            feedbackTwo + " Guess again" + triesFeed + triesFeedback;
+                    triesFeedback --;
                     break;
                 case 9:
                     mistakeTwo = "/   (  .' .   \\\n" +
@@ -512,7 +543,8 @@ public class MathGenerator {
                             "            \n" +
                             "           _\\|/^\n" +
                             "           (_oo\n" +
-                            feedbackTwo + " Guess again";
+                            feedbackTwo + " Guess again" + triesFeed + triesFeedback;
+                    triesFeedback --;
                     break;
                 case 10:
                     mistakeTwo = "/   (  .' .   \\\n" +
@@ -529,7 +561,8 @@ public class MathGenerator {
                             "           _\\|/^\n" +
                             "           (_oo\n" +
                             "            |  \n  " +
-                            feedbackTwo + " Guess again";
+                            feedbackTwo + " Guess again" + triesFeed + triesFeedback;
+                    triesFeedback --;
                     break;
                 case 11:
                     mistakeTwo = "/   (  .' .   \\\n" +
@@ -547,7 +580,8 @@ public class MathGenerator {
                             "           (_oo\n" +
                             "            |  \n  " +
                             "         /|\\\n" +
-                            feedbackTwo + " Guess again";
+                            feedbackTwo + " Guess again" + triesFeed + triesFeedback;
+                    triesFeedback --;
                     break;
                 case 12:
                     mistakeTwo = "/   (  .' .   \\\n" +
@@ -566,7 +600,8 @@ public class MathGenerator {
                             "            |  \n  " +
                             "         /|\\\n" +
                             "            |\n" +
-                            feedbackTwo + " Guess again";
+                            feedbackTwo + " Guess again" + triesFeed + triesFeedback;
+                    triesFeedback --;
                     break;
                 case 13:
                     mistakeTwo = "/   (  .' .   \\\n" +
@@ -586,7 +621,7 @@ public class MathGenerator {
                             "         /|\\\n" +
                             "            |\n" +
                             "            LL\n" +
-                            feedbackTwo + " Guess again";
+                            feedbackTwo + " Guess again" + "\n  \\\\ WARNING \\\\  \n You have one try left.";
                     break;
                 case 14:
                     mistakeTwo =  "     .-.\n" +
