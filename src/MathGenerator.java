@@ -21,6 +21,7 @@ public class MathGenerator {
         hangmanTries = 0;
         int score = 1000;
         String phraseEmptiness = " ";
+        String dashes;
 
 
         System.out.println("WELCOME TO HANGMAN.");
@@ -119,12 +120,15 @@ public class MathGenerator {
             }
             hangmanWord = difficulty(hangman);
             System.out.println(hangmanWord);
+            dashes = wordDashes(hangmanWord);
+            System.out.println(dashes);
             System.out.println("Now guess a letter.");
 
             while (game) {
                 System.out.println("YOUR SCORE: " + score + ".");
                 guessedLetter = user.nextLine().toLowerCase();
                 if (guessedLetterRight(hangmanWord, guessedLetter)) {
+                    System.out.println(letterReplacementDashes(hangmanWord,guessedLetter,dashes));
                     System.out.print("That's odd, that seems to be correct.");
                     score += 50;
                 }
@@ -289,12 +293,12 @@ public class MathGenerator {
         public static String hangMan ( int tries, boolean win){
             String mistake;
             String feedback;
-            String triesFeed = "Tries Left: ";
+            String triesFeed = "\nTries Left: ";
             int triesFeedback = 12;
             if (win) {
                 feedback = "Wow. You won.";
             } else {
-                feedback = "\nNope you wrong.\n";
+                feedback = "\nNope you wrong.";
             }
             switch (tries) {
 
@@ -307,7 +311,7 @@ public class MathGenerator {
                 case 1:
                     mistake = "    \\\n" +
                             "   o/\\_\n" +
-                            feedback + " Guess again." + triesFeed + triesFeedback;
+                            feedback + "Guess again." + triesFeed + triesFeedback;
                     triesFeedback --;
                     break;
                 case 2:
@@ -657,6 +661,15 @@ public class MathGenerator {
 
         }
         return guessPhrase;
+        }
+
+
+        public static String wordDashes (String word) {
+            String dashes= "";
+            for (int i = 0; i <= word.length(); i++) {
+               dashes+="-";
+            }
+            return dashes;
         }
 }
 
