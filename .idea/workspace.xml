@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33e74754-3afe-45a3-b4ac-b38d83634171" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HangmanGame/MathGenerator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HangmanGame/MathGenerator.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MathGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MathGenerator.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -46,8 +44,8 @@
       <file leaf-file-name="MathGenerator.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/MathGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="130" column="69" selection-start-line="130" selection-start-column="69" selection-end-line="130" selection-end-column="69" />
+            <state relative-caret-position="125">
+              <caret line="656" column="41" selection-start-line="656" selection-start-column="41" selection-end-line="656" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -87,10 +85,10 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="ProjectPane" />
+      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="AndroidView" />
-      <pane id="PackagesPane" />
-      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -195,8 +193,8 @@
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.3290938" />
       <window_info anchor="right" id="Maven Projects" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.80922097" />
       <window_info anchor="bottom" id="Version Control" order="10" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.80922097" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Designer" order="3" />
@@ -205,8 +203,8 @@
       <window_info anchor="right" id="Ant Build" order="6" weight="0.24962178" />
       <window_info id="UI Designer" order="4" />
       <window_info anchor="right" id="Theme Preview" order="4" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -225,6 +223,13 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/MathGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2210">
+          <caret line="130" column="69" selection-start-line="130" selection-start-column="69" selection-end-line="130" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MathGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="10591">
           <caret line="623" column="109" selection-start-line="623" selection-start-column="109" selection-end-line="623" selection-end-column="109" />
         </state>
@@ -239,8 +244,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MathGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="130" column="69" selection-start-line="130" selection-start-column="69" selection-end-line="130" selection-end-column="69" />
+        <state relative-caret-position="125">
+          <caret line="656" column="41" selection-start-line="656" selection-start-column="41" selection-end-line="656" selection-end-column="41" />
         </state>
       </provider>
     </entry>

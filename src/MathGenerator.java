@@ -654,7 +654,7 @@ public class MathGenerator {
         }
 
         public static String letterReplacementDashes(String word, String guess, String guessPhrase){
-        for (int position = 0; position <= word.length(); position ++){
+        for (int position = 0; position < word.length(); position ++){
             if(guess.charAt(0) == word.charAt(position)){
                 guessPhrase = guessPhrase.substring(0,position) + guess + guessPhrase.substring(position+1);
             }
