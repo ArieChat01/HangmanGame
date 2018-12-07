@@ -44,8 +44,8 @@
       <file leaf-file-name="MathGenerator.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/MathGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="125">
-              <caret line="656" column="41" selection-start-line="656" selection-start-column="41" selection-end-line="656" selection-end-column="41" />
+            <state relative-caret-position="456">
+              <caret line="659" column="57" lean-forward="true" selection-start-line="659" selection-start-column="57" selection-end-line="659" selection-end-column="57" />
             </state>
           </provider>
         </entry>
@@ -85,10 +85,10 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane" />
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="AndroidView" />
+      <pane id="ProjectPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -193,8 +193,8 @@
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.3290938" />
       <window_info anchor="right" id="Maven Projects" order="7" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.82511926" />
       <window_info anchor="bottom" id="Version Control" order="10" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.80922097" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Designer" order="3" />
@@ -203,8 +203,8 @@
       <window_info anchor="right" id="Ant Build" order="6" weight="0.24962178" />
       <window_info id="UI Designer" order="4" />
       <window_info anchor="right" id="Theme Preview" order="4" />
-      <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -221,6 +221,13 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/MathGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="11152">
+          <caret line="656" column="41" selection-start-line="656" selection-start-column="41" selection-end-line="656" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/MathGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2210">
@@ -244,8 +251,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MathGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="656" column="41" selection-start-line="656" selection-start-column="41" selection-end-line="656" selection-end-column="41" />
+        <state relative-caret-position="456">
+          <caret line="659" column="57" lean-forward="true" selection-start-line="659" selection-start-column="57" selection-end-line="659" selection-end-column="57" />
         </state>
       </provider>
     </entry>

@@ -20,7 +20,8 @@ public class MathGenerator {
         int hangmanTries;
         hangmanTries = 0;
         int score = 1000;
-        String phraseEmptiness = " ";
+        String phraseDashes ="";
+        String phrase = "";
         String dashes;
 
 
@@ -123,12 +124,12 @@ public class MathGenerator {
             dashes = wordDashes(hangmanWord);
             System.out.println(dashes);
             System.out.println("Now guess a letter.");
-
             while (game) {
                 System.out.println("YOUR SCORE: " + score + ".");
                 guessedLetter = user.nextLine().toLowerCase();
+                phraseDashes = letterReplacementDashes(hangmanWord,guessedLetter,dashes);
                 if (guessedLetterRight(hangmanWord, guessedLetter)) {
-                    System.out.println(letterReplacementDashes(hangmanWord,guessedLetter,dashes));
+                    System.out.println(phraseDashes);
                     System.out.print("That's odd, that seems to be correct.");
                     score += 50;
                 }
@@ -174,6 +175,7 @@ public class MathGenerator {
                 while (gameTwo) {
                     guessedLetter = user.nextLine().toLowerCase();
                     if (guessedLetterRight(hangmanWord, guessedLetter)) {
+                        System.out.println(letterReplacementDashes(hangmanWord,guessedLetter,dashes));
                         System.out.print("That's odd, that seems to be correct.");
                         score += 50;
                     }
@@ -657,6 +659,7 @@ public class MathGenerator {
         for (int position = 0; position < word.length(); position ++){
             if(guess.charAt(0) == word.charAt(position)){
                 guessPhrase = guessPhrase.substring(0,position) + guess + guessPhrase.substring(position+1);
+
             }
 
         }
