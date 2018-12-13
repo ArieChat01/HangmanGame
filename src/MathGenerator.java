@@ -20,23 +20,17 @@ public class MathGenerator {
         int hangmanTries;
         hangmanTries = 0;
         int score = 1000;
-        String phraseDashes ="";
-        String phrase = "";
         String dashes;
 
 
         System.out.println("WELCOME TO HANGMAN.");
         System.out.println("HERE ARE THE RULES!");
-        System.out.println("FIRST, I WILL GIVE YOU A WORD TO GUESS. THEN YOU WILL GET 15 TRIES TO GUESS THAT WORD.");
-        System.out.println("EACH LETTER YOU GUESS RIGHT EARNS YOU 100 PTS. EACH ONE YOU GUESS WRONG EARNS YOU 0 PTS.");
+        System.out.println("FIRST, I WILL GIVE YOU A WORD TO GUESS BASED ON YOUR DIFFICULTY LEVEL. THEN YOU WILL GET SO MANY TRIES TO GUESS THAT WORD.");
         System.out.println("GET IT RIGHT ON THE FIRST TRY AND GET 1000 PTS AUTOMATICALLY.");
-        System.out.println("RUN OUT OF TRIES AND ... PTS WILL BE SUBTRACTED FROM YOUR TOTAL SCORE.");
-        System.out.println("I'M NOT TOO UNKIND THOUGH. YOU WILL RECEIVE 3 HINTS EVERY ROUND. HOWEVER EVERY HINT ACCEPTED " +
-                "WILL AFFECT THE AMOUNT OF POINTS YOU ARE ABLE TO RECEIVE FOR EACH ADDITIONAL LETTER.");
+        System.out.println("RUN OUT OF TRIES AND 150 PTS WILL BE SUBTRACTED FROM YOUR TOTAL SCORE.");
 
         while (wholeGame) {
             String[] alphabet = {"a ", "b ", "c ", "d ", "e ", "f ", "g ", "h ", "i ", "j", "\n", "k ", "l ", "m ", "n ", "o ", "p ", "q ", "r ", "s ", "t", "\n", "u ", "v ", "w ", "x ", "y ", "z", "\n"};
-            String[] blankSpaces = {"*", "*", "*", "*", "*", "*", "*", "*", "*", "*", "*", "*", "*", "*", "*", "*", "*", "*", "*", "*",};
             while (notReady) {
                 System.out.println("ARE YOU READY?(Enter \"yes\" or \"no\")");
                 userResponse = user.nextLine();
@@ -57,19 +51,25 @@ public class MathGenerator {
 
                 if (userResponse.equals("easy")) {
                     difficulty = false;
+                    man = true;
                 }
                 if (userResponse.equals("medium")) {
                     difficulty = false;
                     hangman++;
+                    man = true;
                 }
                 if (userResponse.equals("hard")) {
                     difficulty = false;
                     hangman += 2;
-                } else if (!userResponse.equals("easy") && !userResponse.equals("medium") && !userResponse.equals("hard")) {
+                    man = true;
+                }
+                if (!userResponse.equals("easy") && !userResponse.equals("medium") && !userResponse.equals("hard")) {
                     System.out.println("Nah Bruh. Read the instructions.");
                     difficulty = true;
+                    man = false;
                 }
-                while (man) {
+            }
+            while (man) {
                 System.out.println("NOW... CHOOSE YOUR MAN.");
                 System.out.println("    \\\n" +
                         "   o/\\_\n" +
@@ -101,23 +101,21 @@ public class MathGenerator {
                         "            LL\n" +
                         "            \n  TED           ");
 
-                    userResponse = user.nextLine().toLowerCase();
-                    if (userResponse.equals("bob")) {
-                        man = false;
-                        game = true;
-                        gameTwo = false;
-                    } else if (userResponse.equals("ted")) {
-                        man = false;
-                        game = false;
-                        gameTwo = true;
-                    } else if (!userResponse.equals("bob") && !userResponse.equals("ted")) {
-                        System.out.println("No imbecile, choose Bob or Ted.");
-                        man = true;
-                        game = false;
-                        gameTwo = false;
-                    }
+                userResponse = user.nextLine().toLowerCase();
+                if (userResponse.equals("bob")) {
+                    man = false;
+                    game = true;
+                    gameTwo = false;
+                } else if (userResponse.equals("ted")) {
+                    man = false;
+                    game = false;
+                    gameTwo = true;
+                } else if (!userResponse.equals("bob") && !userResponse.equals("ted")) {
+                    System.out.println("No imbecile, choose Bob or Ted.");
+                    man = true;
+                    game = false;
+                    gameTwo = false;
                 }
-
             }
             hangmanWord = difficulty(hangman);
             System.out.println(hangmanWord);
@@ -127,16 +125,13 @@ public class MathGenerator {
             while (game) {
                 System.out.println("YOUR SCORE: " + score + ".");
                 guessedLetter = user.nextLine().toLowerCase();
-                phraseDashes = letterReplacementDashes(hangmanWord,guessedLetter,dashes);
+                dashes = letterReplacementDashes(hangmanWord, guessedLetter, dashes);
                 if (guessedLetterRight(hangmanWord, guessedLetter)) {
-                    System.out.println(phraseDashes);
+                    System.out.println(dashes);
                     System.out.print("That's odd, that seems to be correct.");
-                    score += 50;
-                }
-                else {
+                } else {
                     System.out.println(hangMan(hangmanTries, false));
                     hangmanTries++;
-                    score -= 10;
                 }
                 if (hangmanTries > 11) {
                     score -= 150;
@@ -152,7 +147,7 @@ public class MathGenerator {
                 }
                 if (hangmanWord.equalsIgnoreCase(guessedLetter) && hangmanTries == 0) {
                     score += 1000;
-                    System.out.println("Did you cheat?");
+                    System.out.println(" Did you cheat?");
                     gameTwo = false;
                     break;
                 }
@@ -171,102 +166,97 @@ public class MathGenerator {
             }
 
 
-
-                while (gameTwo) {
-                    guessedLetter = user.nextLine().toLowerCase();
-                    if (guessedLetterRight(hangmanWord, guessedLetter)) {
-                        System.out.println(letterReplacementDashes(hangmanWord,guessedLetter,dashes));
-                        System.out.print("That's odd, that seems to be correct.");
-                        score += 50;
-                    }
-                    else {
-                        System.out.println(hangManTwo(hangmanTries, false));
-                        hangmanTries++;
-                        score -= 10;
-                    }
-                    if (hangmanTries > 13) {
-                        score -= 150;
-                        System.out.println(hangManTwo(hangmanTries, false));
-                        break;
-                    }
-                    if (hangmanWord.equalsIgnoreCase(guessedLetter) && hangmanTries == 13) {
-                        score += 750;
-                        System.out.println("LAST CHANCE ACHIEVEMENT!");
-                        break;
-                    }
-                    if (hangmanWord.equalsIgnoreCase(guessedLetter) && hangmanTries == 0) {
-                        score += 1000;
-                        System.out.println("Did you cheat?");
-                        break;
-                    }
-                    if (hangmanWord.equalsIgnoreCase(guessedLetter)) {
-                        System.out.println(hangManTwo(hangmanTries, true));
-                        score += 500;
-                        break;
-                    }
-                    alphabet = Beta(alphabet, guessedLetter);
-                    System.out.println(" ");
-                    for (String letter : alphabet) {
-                        System.out.print(letter);
-                    }
-                    System.out.println(" ");
+            while (gameTwo) {
+                guessedLetter = user.nextLine().toLowerCase();
+                dashes = letterReplacementDashes(hangmanWord, guessedLetter, dashes);
+                if (guessedLetterRight(hangmanWord, guessedLetter)) {
+                    System.out.println(dashes);
+                    System.out.print("That's odd, that seems to be correct.");
+                } else {
+                    System.out.println(hangManTwo(hangmanTries, false));
+                    hangmanTries++;
                 }
+                if (hangmanTries > 13) {
+                    score -= 150;
+                    System.out.println(hangManTwo(hangmanTries, false));
+                    break;
+                }
+                if (hangmanWord.equalsIgnoreCase(guessedLetter) && hangmanTries == 13) {
+                    score += 750;
+                    System.out.println("LAST CHANCE ACHIEVEMENT!");
+                    break;
+                }
+                if (hangmanWord.equalsIgnoreCase(guessedLetter) && hangmanTries == 0) {
+                    score += 1000;
+                    System.out.println(" Did you cheat?");
+                    break;
+                }
+                if (hangmanWord.equalsIgnoreCase(guessedLetter)) {
+                    System.out.println(hangManTwo(hangmanTries, true));
+                    score += 500;
+                    break;
+                }
+                alphabet = Beta(alphabet, guessedLetter);
+                System.out.println(" ");
+                for (String letter : alphabet) {
+                    System.out.print(letter);
+                }
+                System.out.println(" ");
+            }
 
 
             while (playAgain) {
                 System.out.println("Do you want to play again?");
                 userResponse = user.nextLine().toLowerCase();
-                while (yes) {
-                    if (userResponse.equals("yes")) {
-                        playAgain = false;
-                        wholeGame = true;
-
-                        System.out.println("Would you like to choose a new difficulty level? Enter \"yes\" or \"no\".");
-                        userResponse = user.nextLine().toLowerCase();
-                        if (userResponse.equals("yes")) {
-                            difficulty = true;
-                        }
-                    }
-                    if (userResponse.equals("no")){
-                        difficulty = false;
-                    }
-                    System.out.print("Would you like to choose a new stick man? Enter \"yes\" or \"no\".");
-                    userResponse = user.nextLine().toLowerCase();
-                    if (userResponse.equals("yes")) {
-                        yes = false;
-                        man = true;
-                    }
-                    if (userResponse.equals("no")){
-                        yes = false;
-                        man = false;
-                    }
-                }
-                    if (userResponse.equals("no")) {
+                if (userResponse.equals("no")) {
                     playAgain = false;
                     wholeGame = false;
                     yes = false;
-                    System.out.println("      ___           ___           ___           ___                    ___           ___           ___           ___              \n" +
-                            "     /\\  \\         /\\  \\         /\\__\\         /\\  \\                  /\\  \\         /\\__\\         /\\  \\         /\\  \\             \n" +
-                            "    /::\\  \\       /::\\  \\       /::|  |       /::\\  \\                /::\\  \\       /:/  /        /::\\  \\       /::\\  \\            \n" +
-                            "   /:/\\:\\  \\     /:/\\:\\  \\     /:|:|  |      /:/\\:\\  \\              /:/\\:\\  \\     /:/  /        /:/\\:\\  \\     /:/\\:\\  \\           \n" +
-                            "  /:/  \\:\\  \\   /::\\~\\:\\  \\   /:/|:|__|__   /::\\~\\:\\  \\            /:/  \\:\\  \\   /:/__/  ___   /::\\~\\:\\  \\   /::\\~\\:\\  \\          \n" +
-                            " /:/__/_\\:\\__\\ /:/\\:\\ \\:\\__\\ /:/ |::::\\__\\ /:/\\:\\ \\:\\__\\          /:/__/ \\:\\__\\  |:|  | /\\__\\ /:/\\:\\ \\:\\__\\ /:/\\:\\ \\:\\__\\         \n" +
-                            " \\:\\  /\\ \\/__/ \\/__\\:\\/:/  / \\/__/~~/:/  / \\:\\~\\:\\ \\/__/          \\:\\  \\ /:/  /  |:|  |/:/  / \\:\\~\\:\\ \\/__/ \\/_|::\\/:/  /         \n" +
-                            "  \\:\\ \\:\\__\\        \\::/  /        /:/  /   \\:\\ \\:\\__\\             \\:\\  /:/  /   |:|__/:/  /   \\:\\ \\:\\__\\      |:|::/  /          \n" +
-                            "   \\:\\/:/  /        /:/  /        /:/  /     \\:\\ \\/__/              \\:\\/:/  /     \\::::/__/     \\:\\ \\/__/      |:|\\/__/           \n" +
-                            "    \\::/  /        /:/  /        /:/  /       \\:\\__\\                 \\::/  /       ~~~~          \\:\\__\\        |:|  |             \n" +
-                            "     \\/__/         \\/__/         \\/__/         \\/__/                  \\/__/                       \\/__/         \\|__|           ");
                 }
-                if (!userResponse.equals("yes") && !userResponse.equals("no")) {
-                    playAgain = true;
-                    wholeGame = false;
-                    yes = false;
+                if (userResponse.equals("yes")) {
+                    playAgain = false;
+                    wholeGame = true;
+                    yes = true;
                 }
+                while (yes) {
+                    System.out.println("Would you like to choose a new difficulty level? Enter \"yes\" or \"no\".");
+                    userResponse = user.nextLine().toLowerCase();
+                    if (userResponse.equals("yes")) {
+                        difficulty = true;
+                        yes = false;
+                    }
 
+                    if (userResponse.equals("no")) {
+                        difficulty = false;
+                        yes = false;
+                    }
+                    System.out.print("Would you like to choose a new stick man? Enter \"yes\" or \"no\".\n");
+                    userResponse = user.nextLine().toLowerCase();
+                    if (userResponse.equals("yes")) {
+                        man = true;
+                        yes = false;
+                    }
+                    if (userResponse.equals("no")) {
+                        man = false;
+                        yes = false;
+                    }
+                }
+                System.out.println("      ___           ___           ___           ___                    ___           ___           ___           ___              \n" +
+                        "     /\\  \\         /\\  \\         /\\__\\         /\\  \\                  /\\  \\         /\\__\\         /\\  \\         /\\  \\             \n" +
+                        "    /::\\  \\       /::\\  \\       /::|  |       /::\\  \\                /::\\  \\       /:/  /        /::\\  \\       /::\\  \\            \n" +
+                        "   /:/\\:\\  \\     /:/\\:\\  \\     /:|:|  |      /:/\\:\\  \\              /:/\\:\\  \\     /:/  /        /:/\\:\\  \\     /:/\\:\\  \\           \n" +
+                        "  /:/  \\:\\  \\   /::\\~\\:\\  \\   /:/|:|__|__   /::\\~\\:\\  \\            /:/  \\:\\  \\   /:/__/  ___   /::\\~\\:\\  \\   /::\\~\\:\\  \\          \n" +
+                        " /:/__/_\\:\\__\\ /:/\\:\\ \\:\\__\\ /:/ |::::\\__\\ /:/\\:\\ \\:\\__\\          /:/__/ \\:\\__\\  |:|  | /\\__\\ /:/\\:\\ \\:\\__\\ /:/\\:\\ \\:\\__\\         \n" +
+                        " \\:\\  /\\ \\/__/ \\/__\\:\\/:/  / \\/__/~~/:/  / \\:\\~\\:\\ \\/__/          \\:\\  \\ /:/  /  |:|  |/:/  / \\:\\~\\:\\ \\/__/ \\/_|::\\/:/  /         \n" +
+                        "  \\:\\ \\:\\__\\        \\::/  /        /:/  /   \\:\\ \\:\\__\\             \\:\\  /:/  /   |:|__/:/  /   \\:\\ \\:\\__\\      |:|::/  /          \n" +
+                        "   \\:\\/:/  /        /:/  /        /:/  /     \\:\\ \\/__/              \\:\\/:/  /     \\::::/__/     \\:\\ \\/__/      |:|\\/__/           \n" +
+                        "    \\::/  /        /:/  /        /:/  /       \\:\\__\\                 \\::/  /       ~~~~          \\:\\__\\        |:|  |             \n" +
+                        "     \\/__/         \\/__/         \\/__/         \\/__/                  \\/__/                       \\/__/         \\|__|           ");
             }
+
+
         }
     }
-
         public static String difficulty( int levels){
             String easyMediumHard = "";
             switch (levels) {
@@ -659,7 +649,6 @@ public class MathGenerator {
         for (int position = 0; position < word.length(); position ++){
             if(guess.charAt(0) == word.charAt(position)){
                 guessPhrase = guessPhrase.substring(0,position) + guess + guessPhrase.substring(position+1);
-
             }
 
         }
@@ -669,8 +658,8 @@ public class MathGenerator {
 
         public static String wordDashes (String word) {
             String dashes= "";
-            for (int i = 0; i <= word.length(); i++) {
-               dashes+="-";
+            for (int i = 0; i < word.length(); i++) {
+                dashes += "-";
             }
             return dashes;
         }
