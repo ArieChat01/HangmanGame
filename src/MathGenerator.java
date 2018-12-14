@@ -115,7 +115,7 @@ public class MathGenerator {
                 }
             }
             hangmanWord = difficulty(hangman);
-            System.out.println(hangmanWord);
+            /*System.out.println(hangmanWord);*/
             dashes = wordDashes(hangmanWord);
             System.out.println(dashes);
             System.out.println("Now guess a letter.");
@@ -134,6 +134,7 @@ public class MathGenerator {
                 if (hangmanTries > 11) {
                     score -= 150;
                     gameTwo = false;
+                    System.out.println("The word was: " + hangmanWord);
                     System.out.println(hangMan(hangmanTries, false));
                     break;
                 }
@@ -177,6 +178,7 @@ public class MathGenerator {
                 }
                 if (hangmanTries > 13) {
                     score -= 150;
+                    System.out.println("The word was: " + hangmanWord);
                     System.out.println(hangManTwo(hangmanTries, false));
                     break;
                 }
